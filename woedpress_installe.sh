@@ -46,10 +46,9 @@ sudo a2ensite wordpress.conf
 sudo systemctl reload apache2
 
 # Create MySQL database and user for WordPress
-read -p "Enter WordPress database name: " wp_db
-read -p "Enter WordPress database user: " wp_user
-read -sp "Enter WordPress database password: " wp_password
-echo
+wp_db=$WORDPRESS_DB_NAME
+wp_user=$WORDPRESS_DB_USER
+wp_password=$WORDPRESS_DB_PASSWORD
 
 sudo mysql -u root -p <<MYSQL_SCRIPT
 CREATE DATABASE $wp_db;
