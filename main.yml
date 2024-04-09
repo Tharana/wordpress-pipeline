@@ -1,0 +1,24 @@
+name: WordPress Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    env:
+      WORDPRESS_DB_NAME: ${{ secrets.WORDPRESS_DB_NAME }}
+      WORDPRESS_DB_USER: ${{ secrets.WORDPRESS_DB_USER }}
+      WORDPRESS_DB_PASSWORD: ${{ secrets.WORDPRESS_DB_PASSWORD }}
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Run Deployment Script
+      run: |
+        sudo chmod +x deploy.sh
+        ./deploy.sh
