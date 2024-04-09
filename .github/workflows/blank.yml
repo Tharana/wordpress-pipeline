@@ -23,4 +23,4 @@ jobs:
 
       - name: Run Deployment Script on EC2 Instance
         run: |
-          ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY ubuntu@3.90.199.94 'bash -s' < deploy.sh
+          ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY 3.90.199.94 'bash -s' < deploy.sh
